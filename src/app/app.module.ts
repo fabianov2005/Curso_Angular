@@ -7,13 +7,19 @@ import { AppComponent } from './app.component';
 import { MeuPrimeiroComponent } from './meu-primeiro/meu-primeiro.component';
 import { TesteCursoComponent } from './teste-curso/teste-curso.component';
 import { AppCursoComponent } from './app-curso/app-curso.component';
+import { CalculadoraComponent } from './calculadora/calculadora.component';
+import { ContadorComponent } from './contador/contador.component';
+import { DiretivasComponent } from './diretivas/diretivas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MeuPrimeiroComponent,
     TesteCursoComponent,
-    AppCursoComponent
+    AppCursoComponent,
+    CalculadoraComponent,
+    ContadorComponent,
+    DiretivasComponent
   ],
   imports: [
     BrowserModule,

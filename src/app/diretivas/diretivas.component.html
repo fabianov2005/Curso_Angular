@@ -1,0 +1,22 @@
+<select #modo ngModel>
+  <option value="">Selecione uma opção</option>
+  <option value="mapa">Mapa</option>
+  <option value="lista">Lista</option>
+</select>
+
+<div [ngSwitch]="modo.value">
+  <p *ngSwitchCase="'mapa'">Modo mapa ativado</p>
+  <p *ngSwitchCase="'lista'">Modo lista ativado</p>
+  <p *ngSwitchDefault>Modo padrão ativado</p>
+</div>
+
+
+<p>Nomes: </p>
+<ul>
+  <li *ngFor="let nome of nomes">{{ nome }}</li>
+</ul>
+
+<p>Produtos: </p>
+<ul>
+  <li *ngFor="let nomeprodutos of produtos.nome">{{ produtos }}</li>
+</ul>

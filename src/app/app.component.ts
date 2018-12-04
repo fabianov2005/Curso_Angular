@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Projeto do Curso Angular - SERPRO';
+
+
+  onMudou(dados: any) {
+    alert(dados.novoValor);
+  }
 }
