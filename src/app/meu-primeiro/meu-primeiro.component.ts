@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-meu-primeiro',
@@ -8,21 +8,33 @@ import { Component, OnInit } from '@angular/core';
 export class MeuPrimeiroComponent implements OnInit {
 
   temperaturaConvertida: number;
+  valorEntrada: number;
+  estilo: string = 'display: none;';
+  @Output() numeroInvalido = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  formataNumero(valor: number){
-    let result = 
+  validaNumero(numero: number) {
+
+    if ( isNaN(numero)) {
+        this.numeroInvalido.emit(numero);
+        this.estilo = 'display: true;';
+        return false;
+    } else {
+        this.estilo = 'display: none;';
+        return true;
+    }
+
   }
 
-  converter(temperatura) {
-        console.log('passou aqui !') ;
-        this.temperaturaConvertida = ((temperatura - 32) * (5 / 9)) ;
-        console.log(this.temperaturaConvertida);
+  converter(dados: any) {
+        console.log('Valor dados:' + dados);
+        if (this.validaNumero(dados)) {
+          this.temperaturaConvertida = ((dados - 32) * (5 / 9)) ;
+          console.log(this.temperaturaConvertida);
+        }
   }
-
-
 }
