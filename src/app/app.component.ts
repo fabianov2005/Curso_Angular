@@ -12,4 +12,8 @@ export class AppComponent {
   onMudou(dados: any) {
     alert(dados.novoValor);
   }
+
+  onNumeroInvalido(dados: any) {
+    alert('Valor inválido para conversão !!!');
+  }
 }

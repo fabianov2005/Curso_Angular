@@ -4,12 +4,16 @@
 
 <div class="form-group">
      <label for="celsius">Entre com a Temperatura:</label>
-     <input type="text" class="form-control" id="celsius" ngModel #temperatura>
+     <input type="text" class="form-control" id="celsius" [(ngModel)]="valorEntrada" required >
 </div>
 
 <div>
-    <button type="button" class="btn btn-primary" (click)="converter(temperatura.value)">Calcular</button>
+    <button type="button" class="btn btn-primary" (click)="converter(valorEntrada)">Calcular</button>
     <p>Temperatura em Fahrenheit: {{ temperaturaConvertida }}</p>
+</div>
+
+<div class="alert alert-primary" role="alert" [style]="estilo">
+  This is a primary alert—check it out!
 </div>
 
 
