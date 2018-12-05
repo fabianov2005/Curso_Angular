@@ -14,12 +14,15 @@ export class MeuPrimeiroComponent implements OnInit {
   ngOnInit() {
   }
 
+  formataNumero(valor: number){
+    let result = 
+  }
+
   converter(temperatura) {
         console.log('passou aqui !') ;
         this.temperaturaConvertida = ((temperatura - 32) * (5 / 9)) ;
         console.log(this.temperaturaConvertida);
-
-      }
+  }
 
 
 }
