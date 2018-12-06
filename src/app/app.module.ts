@@ -10,6 +10,7 @@ import { AppCursoComponent } from './app-curso/app-curso.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { ContadorComponent } from './contador/contador.component';
 import { DiretivasComponent } from './diretivas/diretivas.component';
+import { EleicaoComponent } from './eleicao/eleicao.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DiretivasComponent } from './diretivas/diretivas.component';
     AppCursoComponent,
     CalculadoraComponent,
     ContadorComponent,
-    DiretivasComponent
+    DiretivasComponent,
+    EleicaoComponent
   ],
   imports: [
     BrowserModule,

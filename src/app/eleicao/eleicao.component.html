@@ -1,0 +1,76 @@
+<div class="row">
+  
+  <div class="container-fluid">
+      <p style="text-align: center; margin-top: 15px; font-size: 25px;">CABINE DE VOTACAO</p>
+  </div>
+
+  <div class="col" style="background-color: aliceblue; 
+                          min-height: 400px; 
+                          width: 50px; 
+                          margin-bottom: 30px;
+                          margin-top: 30px;
+                          margin-left: 25px;
+                          margin-right: 25px;" > 
+      <div class="row">
+        <div class="col-md-6">
+            <div class="card" style="width: 700px; margin-top: 25px" [hidden]="jaVotou()">
+                <div class="card-body" >
+                    VOCÊ DEVERÁ VOTAR PARA PRESIDENTE DO NADA.
+                    <button type="button" class="btn btn-primary">Iniciar Votação</button>
+                </div>
+            </div>                          
+            <div class="card" style="width: 700px; margin-top: 25px" [hidden]="!jaVotou()">
+                <div class="card-body" >
+                    VOCÊ VOTOU EM :
+                </div>
+            </div>                
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
+              <div class="card" style="width: 350px; margin-top: 25px; background-color:black" [hidden]="jaVotou()">
+                  <div class="card-body" >
+                      <div class="row">
+                          <div class="col-md-4">
+                              <button type="button" class="btn btn-dark" style="font-size: 25px"> &nbsp; 1 &nbsp;</button>
+                              <p></p>
+                              <button type="button" class="btn btn-dark" style="font-size: 25px"> &nbsp; 4 &nbsp;</button>
+                              <p></p>
+                              <button type="button" class="btn btn-dark" style="font-size: 25px"> &nbsp; 7 &nbsp; </button>                                                            
+                          </div>  
+                          <div class="col-md-4">
+                              <button type="button" class="btn btn-dark" style="font-size: 25px"> &nbsp; 2 &nbsp; </button>
+                              <p></p>
+                              <button type="button" class="btn btn-dark" style="font-size: 25px"> &nbsp; 5 &nbsp;</button>
+                              <p></p>
+                              <button type="button" class="btn btn-dark" style="font-size: 25px"> &nbsp; 8 &nbsp;</button>                                                            
+                              <p></p>                              
+                              <button type="button" class="btn btn-dark" style="font-size: 25px"> &nbsp; 0 &nbsp;</button>                                                            
+                          </div>  
+                          <div class="col-md-4">
+                              <button type="button" class="btn btn-dark" style="font-size: 25px"> &nbsp; 3 &nbsp;</button>
+                              <p></p>                              
+                              <button type="button" class="btn btn-dark" style="font-size: 25px"> &nbsp; 6 &nbsp;</button>
+                              <p></p>
+                              <button type="button"  class="btn btn-dark" style="font-size: 25px"> &nbsp; 9 &nbsp;</button>                                                            
+                              <p></p>
+                          </div>                                                        
+                      </div>
+                      <p></p>
+                      <div class="row">
+                          <div class="col-md-4">
+                              <button type="button" class="btn btn-light">Branco</button>
+                          </div>
+                          <div class="col-md-4">
+                              <button type="button" class="btn btn-danger">Corrige</button>
+                          </div>
+                          <div class="col-md-4">
+                              <button type="button" class="btn btn-success">Confirma</button>
+                          </div>                                                      
+                      </div>
+                  </div>  
+              </div>                                      
+        </div>
+      </div>                    
+  </div>
+</div>
