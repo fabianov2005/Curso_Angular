@@ -11,8 +11,12 @@ import { AppCursoComponent } from './app-curso/app-curso.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { ContadorComponent } from './contador/contador.component';
 import { DiretivasComponent } from './diretivas/diretivas.component';
+<<<<<<< HEAD
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { TDPedidosComponent } from './tdpedidos/tdpedidos.component';
+=======
+import { EleicaoComponent } from './eleicao/eleicao.component';
+>>>>>>> 86fc19e955b381b3f46993293e9073694de752de
 
 @NgModule({
   declarations: [
