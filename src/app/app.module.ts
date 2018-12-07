@@ -12,8 +12,12 @@ import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { ContadorComponent } from './contador/contador.component';
 import { DiretivasComponent } from './diretivas/diretivas.component';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { TDPedidosComponent } from './tdpedidos/tdpedidos.component';
+=======
+import { EleicaoComponent } from './eleicao/eleicao.component';
+>>>>>>> 86fc19e955b381b3f46993293e9073694de752de
 =======
 import { EleicaoComponent } from './eleicao/eleicao.component';
 >>>>>>> 86fc19e955b381b3f46993293e9073694de752de
@@ -27,8 +31,12 @@ import { EleicaoComponent } from './eleicao/eleicao.component';
     CalculadoraComponent,
     ContadorComponent,
     DiretivasComponent,
+<<<<<<< HEAD
     PedidosComponent,
     TDPedidosComponent
+=======
+    EleicaoComponent
+>>>>>>> 86fc19e955b381b3f46993293e9073694de752de
   ],
   imports: [
     BrowserModule,
