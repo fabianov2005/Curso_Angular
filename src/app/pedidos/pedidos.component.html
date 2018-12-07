@@ -20,7 +20,7 @@
         <div class="form-group col-sm-4">
           <label for="quantidade">Quantidade</label>
           <input type="text" formControlName="quantidade" class="form-control" />
-          <p *ngIf="form.controls.dados.controls.titulo.touched && form.controls.dados.controls.titulo.errors">
+          <p *ngIf="form.controls.quantidade.touched" style="color: red">
              Campo obrigatório!
           </p>
         </div>
@@ -58,12 +58,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngIf="pedidos.length === 0">
+      <tr *ngIf="buscarpedidos().length === 0">
         <td colspan="5">
           Nenhum registro encontrado
         </td>
       </tr>
-      <tr *ngFor="let p of pedidos">
+      <tr *ngFor="let p of buscarpedidos()">
         <td>{{ p.produto.nome }}</td>
         <td>{{ p.produto.valor | currency:'BRL' }}</td>
         <td>{{ p.quantidade }}</td>
@@ -71,7 +71,7 @@
         <td>{{ p.total | currency:'BRL' }}</td>
       </tr>
     </tbody>
-    <tfoot *ngIf="pedidos.length > 0">
+    <tfoot *ngIf="buscarpedidos().length > 0">
       <tr>
         <td colspan="5">
           TOTAL: {{ getTotal() | currency:'BRL' }}

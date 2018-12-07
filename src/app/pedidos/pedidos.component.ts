@@ -1,3 +1,4 @@
+import { PedidoService } from './../shared/services/pedido.service';
 import { Component, OnInit } from '@angular/core';
 // #asda
 import { FORMAS, Pedido } from './../shared/model/pedidos';
@@ -19,16 +20,15 @@ export class PedidosComponent implements OnInit {
   //                       forma: new FormControl()
   //                     });
 
-  pedidos: Pedido[];
 
-  constructor(private formBuilder: FormBuilder ) { }
+
+  constructor(private formBuilder: FormBuilder, private pedidoService: PedidoService ) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({produto: null,
-                                        quantidade: [null, this.validarCodigo],
+                                        quantidade: [null, this.validarCodigo(15)],
                                         forma: null });
 
-    this.pedidos = [];
   }
 
   reset() {
@@ -43,22 +43,29 @@ export class PedidosComponent implements OnInit {
     return FORMAS;
   }
 
+  buscarpedidos() {
+    return this.pedidoService.buscarPedidos();
+  }
+
   incluir() {
-
     const pedido = new Pedido(this.form.value.produto, this.form.value.quantidade, this.form.value.forma);
-
-    this.pedidos.push(pedido);
+    this.pedidoService.incluirPedidos(pedido);
   }
 
   getTotal() {
-    return this.pedidos
-      .reduce((acc, cv) => acc + cv.total, 0);
+    this.pedidoService.getTotalPedidos();
   }
 
 
-  validarCodigo(c: AbstractControl): ValidationErrors|null {
-    return (+c.value < 10 ) ?  null :  { vlInvalido: true };
+  // validarCodigo(c: AbstractControl): ValidationErrors|null {
+  //   return (+c.value < 10 ) ?  null :  { vlInvalido: true };
 
+  // }
+
+  validarCodigo(max: number) {
+    return (c: AbstractControl): ValidationErrors|null => {
+                                                           return (+c.value <= max) ? null : { vlInvalido : true };
+                                                          };
   }
 
 }
