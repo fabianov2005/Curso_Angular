@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 // #asda
 import { FORMAS, Pedido } from './../shared/model/pedidos';
 import { PRODUTOS } from './../shared/model/produtos';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-pedidos',
@@ -11,18 +12,27 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class PedidosComponent implements OnInit {
 
-  form = new FormGroup({
-                        produto: new FormControl(),
-                        quantidade: new FormControl(null, Validators.required),
-                        forma: new FormControl()
-                      });
+  form = new FormGroup({});
+  // form = new FormGroup({
+  //                       produto: new FormControl(),
+  //                       quantidade: new FormControl(null, Validators.required),
+  //                       forma: new FormControl()
+  //                     });
 
   pedidos: Pedido[];
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder ) { }
 
   ngOnInit() {
+    this.form = this.formBuilder.group({produto: null,
+                                        quantidade: [null, this.validarCodigo],
+                                        forma: null });
+
     this.pedidos = [];
+  }
+
+  reset() {
+    this.form.reset();
   }
 
   get produtos() {
@@ -44,5 +54,12 @@ export class PedidosComponent implements OnInit {
     return this.pedidos
       .reduce((acc, cv) => acc + cv.total, 0);
   }
+
+
+  validarCodigo(c: AbstractControl): ValidationErrors|null {
+    return (+c.value < 10 ) ?  null :  { vlInvalido: true };
+
+  }
+
 }
 

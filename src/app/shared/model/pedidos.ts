@@ -1,4 +1,5 @@
 import { PRODUTOS } from './produtos';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 
 export const FORMAS = [
@@ -24,5 +25,6 @@ export class Pedido {
       * this.produto.valor;
     return valor * (1 - this.forma.valor);
   }
+
 }
 
