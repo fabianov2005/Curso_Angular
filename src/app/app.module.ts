@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,8 @@ import { AppCursoComponent } from './app-curso/app-curso.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { ContadorComponent } from './contador/contador.component';
 import { DiretivasComponent } from './diretivas/diretivas.component';
+import { PedidosComponent } from './pedidos/pedidos.component';
+import { TDPedidosComponent } from './tdpedidos/tdpedidos.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +22,15 @@ import { DiretivasComponent } from './diretivas/diretivas.component';
     AppCursoComponent,
     CalculadoraComponent,
     ContadorComponent,
-    DiretivasComponent
+    DiretivasComponent,
+    PedidosComponent,
+    TDPedidosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,13 +1,7 @@
 // tslint:disable-next-line:eofline
 
-export class Produtos {
-
-  constructor() {
-    const listaprodutos = [ {nome: 'Camisa' , valro: 10 } ,
-                            {nome: 'Calça' , valro: 10 } ,
-                            {nome: 'Meia' , valro: 10 } ,
-                            {nome: 'Sapato' , valro: 10 }
-  ];
-  }
-
-}
+export const PRODUTOS = [
+  { nome: 'Camisa', valor: 3.45 },
+  { nome: 'Calça', valor: 1.37 },
+  { nome: 'Meia', valor: 1.82 },
+];
