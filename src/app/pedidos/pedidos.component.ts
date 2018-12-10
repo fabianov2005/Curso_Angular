@@ -47,13 +47,17 @@ export class PedidosComponent implements OnInit {
     return this.pedidoService.buscarPedidos();
   }
 
+  excluir(indice: number) {
+    return this.pedidoService.excluir(indice);
+  }
+
   incluir() {
     const pedido = new Pedido(this.form.value.produto, this.form.value.quantidade, this.form.value.forma);
     this.pedidoService.incluirPedidos(pedido);
   }
 
   getTotal() {
-    this.pedidoService.getTotalPedidos();
+    return this.pedidoService.getTotalPedidos();
   }
 
 

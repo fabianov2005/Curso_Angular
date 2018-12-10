@@ -14,6 +14,7 @@ import { DiretivasComponent } from './diretivas/diretivas.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { TDPedidosComponent } from './tdpedidos/tdpedidos.component';
 import { EleicaoComponent } from './eleicao/eleicao.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EleicaoComponent } from './eleicao/eleicao.component';
     DiretivasComponent,
     PedidosComponent,
     TDPedidosComponent,
-    EleicaoComponent
+    EleicaoComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
