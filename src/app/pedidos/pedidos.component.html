@@ -71,6 +71,7 @@
         <td>{{ p.forma.nome }}</td>
         <td>{{ p.total | currency:'BRL' }}</td>
         <td><button type="button" class="btn btn-danger" (click)="excluir(i)">Excluir</button></td>
+        <td><button type="button" class="btn btn-danger" (click)="detalhar(i)">Detalhar</button></td>
       </tr>
     </tbody>
     <tfoot *ngIf="buscarpedidos().length > 0">

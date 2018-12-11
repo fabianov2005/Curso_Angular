@@ -5,6 +5,7 @@ import { FORMAS, Pedido } from './../shared/model/pedidos';
 import { PRODUTOS } from './../shared/model/produtos';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pedidos',
@@ -20,14 +21,23 @@ export class PedidosComponent implements OnInit {
   //                       forma: new FormControl()
   //                     });
 
+  pedidos: Pedido[] ;
 
-
-  constructor(private formBuilder: FormBuilder, private pedidoService: PedidoService ) { }
+  constructor(private formBuilder: FormBuilder,
+              private pedidoService: PedidoService,
+              private route: Router) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({produto: null,
                                         quantidade: [null, this.validarCodigo(15)],
                                         forma: null });
+
+    this.pedidoService.buscarPedidos().subscribe(value => {
+      this.pedidos = value;
+      },
+      error => {
+      alert('Erro do servidor durante a consulta de cursos!');
+      });
 
   }
 
@@ -44,7 +54,7 @@ export class PedidosComponent implements OnInit {
   }
 
   buscarpedidos() {
-    return this.pedidoService.buscarPedidos();
+    return this.pedidos;
   }
 
   excluir(indice: number) {
@@ -54,6 +64,10 @@ export class PedidosComponent implements OnInit {
   incluir() {
     const pedido = new Pedido(this.form.value.produto, this.form.value.quantidade, this.form.value.forma);
     this.pedidoService.incluirPedidos(pedido);
+  }
+
+  detalhar(numeropedido: number) {
+    this.route.navigate(['/detalhar/' + numeropedido]);
   }
 
   getTotal() {
