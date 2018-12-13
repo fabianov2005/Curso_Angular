@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +16,7 @@ import { PedidosComponent } from './pedidos/pedidos.component';
 import { TDPedidosComponent } from './tdpedidos/tdpedidos.component';
 import { EleicaoComponent } from './eleicao/eleicao.component';
 import { MenuComponent } from './menu/menu.component';
+import { PedidosdetalheComponent } from './pedidosdetalhe/pedidosdetalhe.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +30,15 @@ import { MenuComponent } from './menu/menu.component';
     PedidosComponent,
     TDPedidosComponent,
     EleicaoComponent,
-    MenuComponent
+    MenuComponent,
+    PedidosdetalheComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

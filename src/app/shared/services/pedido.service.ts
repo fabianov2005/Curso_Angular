@@ -1,5 +1,9 @@
 import { Pedido } from './../model/pedidos';
 import { Injectable } from '@angular/core';
+import { PRODUTOS } from '../model/produtos';
+import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,14 +12,19 @@ export class PedidoService {
 
   pedidos: Pedido[];
 
-  constructor() {
+  constructor(private http: HttpClient) {
 
     this.pedidos = [];
 
   }
 
-  buscarPedidos() {
-      return this.pedidos;
+  buscarPedidos(): Observable<Pedido[]> {
+    return this.http
+    .get<Pedido[]>('http://localhost:3000/api/pedidos').pipe( map(pedidos => pedidos.map(e => Object.assign(new Pedido(), e))));
+  }
+
+  localizaPedido(numeropedido: string): Pedido[] {
+      return this.pedidos[numeropedido];
   }
 
   excluir(indice: number) {

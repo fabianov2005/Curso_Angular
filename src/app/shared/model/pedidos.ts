@@ -8,9 +8,9 @@ export const FORMAS = [
 ];
 
 export class Pedido {
-  constructor(public idxProduto: number,
-              public quantidade: number,
-              public idxForma: number) {}
+  constructor(public idxProduto?: number,
+              public quantidade?: number,
+              public idxForma?: number) {}
 
   get produto() {
     return PRODUTOS[this.idxProduto];
