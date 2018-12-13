@@ -20,9 +20,12 @@
         <div class="form-group col-sm-4">
           <label for="quantidade">Quantidade</label>
           <input type="text" formControlName="quantidade" class="form-control" />
-          <p *ngIf="form.controls.quantidade.touched" style="color: red">
-             Campo obrigatório!
+          <p *ngIf="form.controls.quantidade.value == ''" style="color: red">
+             Campo obrigatório !
           </p>
+          <!-- <p *ngIf="form.controls.quantidade.touched && !form.controls.quantidade.valid" style="color: red">
+             Campo inválido !
+          </p> -->
         </div>
         <div class="form-group col-sm-4">
           <label for="forma">Forma</label>

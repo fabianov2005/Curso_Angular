@@ -68,7 +68,7 @@ export class PedidosComponent implements OnInit {
 
   validarCodigo(max: number) {
     return (c: AbstractControl): ValidationErrors|null => {
-                                                           return (+c.value <= max) ? null : { vlInvalido : true };
+                                                           return ((+c.value <= max) && (+c.value != 0))  ? null : { vlInvalido : true };
                                                           };
   }
 
