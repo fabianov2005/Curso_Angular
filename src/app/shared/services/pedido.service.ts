@@ -27,7 +27,7 @@ export class PedidoService {
       return this.pedidos[numeropedido];
   }
 
-  excluir(indice: number) {
+  excluir(indice: number) {   
       // tslint:disable-next-line:no-unused-expression
 
       this.pedidos.splice(indice, 1);
