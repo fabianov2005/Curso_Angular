@@ -1,88 +1,89 @@
+<div class="container">
+        <form [formGroup]="form">
+          <div class="card">
+            <div class="card-header">
+              Mercadão do Fabiano
+            </div>
+            <div class="card-body">
 
-<form [formGroup]="form">
-  <div class="card">
-    <div class="card-header">
-      Exercício 10
-    </div>
-    <div class="card-body">
+              <div class="form-row">
+                <div class="form-group col-sm-4">
+                  <label for="produto">Produto</label>
 
-      <div class="form-row">
-        <div class="form-group col-sm-4">
-          <label for="produto">Produto</label>
+                  <select id="produto" formControlName="produto" class="form-control">
+                    <option *ngFor="let p of produtos, let i = index" [value]="i">
+                      {{ p.nome }} ({{ p.valor | currency:'BRL' }})
+                    </option>
+                  </select>
 
-          <select id="produto" formControlName="produto" class="form-control">
-            <option *ngFor="let p of produtos, let i = index" [value]="i">
-              {{ p.nome }} ({{ p.valor | currency:'BRL' }})
-            </option>
-          </select>
-
-        </div>
-        <div class="form-group col-sm-4">
-          <label for="quantidade">Quantidade</label>
-          <input type="text" formControlName="quantidade" class="form-control" />
-          <p *ngIf="form.controls.quantidade.value == ''" style="color: red">
-             Campo obrigatório !
-          </p>
-          <!-- <p *ngIf="form.controls.quantidade.touched && !form.controls.quantidade.valid" style="color: red">
-             Campo inválido !
-          </p> -->
-        </div>
-        <div class="form-group col-sm-4">
-          <label for="forma">Forma</label>
-          <select id="forma" formControlName="forma" class="form-control">
-            <option *ngFor="let f of formas, let i = index" [value]="i">
-              {{ f.nome }}
-            </option>
-          </select>
-        </div>
-      </div>
+                </div>
+                <div class="form-group col-sm-4">
+                  <label for="quantidade">Quantidade</label>
+                  <input type="text" formControlName="quantidade" class="form-control" />
+                  <p *ngIf="form.controls.quantidade.value == ''" style="color: red">
+                    Campo obrigatório !
+                  </p>
+                  <!-- <p *ngIf="form.controls.quantidade.touched && !form.controls.quantidade.valid" style="color: red">
+                    Campo inválido !
+                  </p> -->
+                </div>
+                <div class="form-group col-sm-4">
+                  <label for="forma">Forma</label>
+                  <select id="forma" formControlName="forma" class="form-control">
+                    <option *ngFor="let f of formas, let i = index" [value]="i">
+                      {{ f.nome }}
+                    </option>
+                  </select>
+                </div>
+              </div>
 
 
-      <div class="form-row">
-        <div class="form-group col-sm-4">
-          <button type="button" class="btn btn-primary" (click)="incluir()" [disabled]="!form.valid">Incluir</button>
-          &nbsp;
-          <button type="button" class="btn btn-danger" (click)="reset()">Limpar</button>
-        </div>
-      </div>
+              <div class="form-row">
+                <div class="form-group col-sm-4">
+                  <button type="button" class="btn btn-primary" (click)="incluir()" [disabled]="!form.valid">Incluir</button>
+                  &nbsp;
+                  <button type="button" class="btn btn-danger" (click)="reset()">Limpar</button>
+                </div>
+              </div>
 
-    </div>
+            </div>
 
-  </div>
+          </div>
 
-  <table class="table table-bordered table-striped margin-top">
-    <thead>
-      <tr>
-        <th>Produto</th>
-        <th>Preço Unit.</th>
-        <th>Quantidade</th>
-        <th>Forma Pag.</th>
-        <th>Total</th>
-        <th>Ação</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngIf="buscarpedidos().length === 0">
-        <td colspan="5">
-          Nenhum registro encontrado
-        </td>
-      </tr>
-      <tr *ngFor="let p of buscarpedidos(), let i = index">
-        <td>{{ p.produto.nome }}</td>
-        <td>{{ p.produto.valor | currency:'BRL' }}</td>
-        <td>{{ p.quantidade }}</td>
-        <td>{{ p.forma.nome }}</td>
-        <td>{{ p.total | currency:'BRL' }}</td>
-        <td><button type="button" class="btn btn-danger" (click)="excluir(i)">Excluir</button></td>
-        <td><button type="button" class="btn btn-danger" (click)="detalhar(i)">Detalhar</button></td>
-      </tr>
-    </tbody>
-    <tfoot *ngIf="buscarpedidos().length > 0">
-      <tr>
-        <td colspan="5">
-          TOTAL: {{ getTotal() | currency:'BRL' }}
-        </td>
-      </tr>
-    </tfoot>
-  </table>
-</form>
+          <table class="table table-bordered table-striped margin-top">
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th>Preço Unit.</th>
+                <th>Quantidade</th>
+                <th>Forma Pag.</th>
+                <th>Total</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="buscarpedidos().length === 0">
+                <td colspan="5">
+                  Nenhum registro encontrado
+                </td>
+              </tr>
+              <tr *ngFor="let p of buscarpedidos(), let i = index">
+                <td>{{ p.produto.nome }}</td>
+                <td>{{ p.produto.valor | currency:'BRL' }}</td>
+                <td>{{ p.quantidade }}</td>
+                <td>{{ p.forma.nome }}</td>
+                <td>{{ p.total | currency:'BRL' }}</td>
+                <td><button type="button" class="btn btn-danger" (click)="excluir(i)">Excluir</button></td>
+                <td><button type="button" class="btn btn-danger" (click)="detalhar(i)">Detalhar</button></td>
+              </tr>
+            </tbody>
+            <tfoot *ngIf="buscarpedidos().length > 0">
+              <tr>
+                <td colspan="5">
+                  TOTAL: {{ getTotal() | currency:'BRL' }}
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </form>
+</div>

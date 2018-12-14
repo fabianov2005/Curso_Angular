@@ -17,6 +17,7 @@ import { TDPedidosComponent } from './tdpedidos/tdpedidos.component';
 import { EleicaoComponent } from './eleicao/eleicao.component';
 import { MenuComponent } from './menu/menu.component';
 import { PedidosdetalheComponent } from './pedidosdetalhe/pedidosdetalhe.component';
+import { BemvindoComponent } from './bemvindo/bemvindo.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PedidosdetalheComponent } from './pedidosdetalhe/pedidosdetalhe.compone
     TDPedidosComponent,
     EleicaoComponent,
     MenuComponent,
-    PedidosdetalheComponent
+    PedidosdetalheComponent,
+    BemvindoComponent
   ],
   imports: [
     BrowserModule,
