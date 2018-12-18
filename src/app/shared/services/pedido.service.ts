@@ -20,14 +20,15 @@ export class PedidoService {
 
   buscarPedidos(): Observable<Pedido[]> {
     return this.http
-    .get<Pedido[]>('http://localhost:3000/api/pedidos').pipe( map(pedidos => pedidos.map(e => Object.assign(new Pedido(), e))));
+    .get<Pedido[]>('http://localhost:3000/api/pedidos').
+    pipe( map(pedidos => pedidos.map(e => Object.assign(new Pedido(), e))));
   }
 
   localizaPedido(numeropedido: string): Pedido[] {
       return this.pedidos[numeropedido];
   }
 
-  excluir(indice: number) {   
+  excluir(indice: number) {
       // tslint:disable-next-line:no-unused-expression
 
       this.pedidos.splice(indice, 1);

@@ -21,16 +21,16 @@ export class PedidosdetalheComponent implements OnInit {
   pedido: Pedido[];
 
   ngOnInit() {
-  //   console.log ('invocado ngOnInit de pedidos detalhe');
-  //   this.detalhapedido = this.route.params.subscribe(
-  //                         params => {
-  //                                   this.id = params['id'];
-  //                                   console.log ('O id é: ' + this.id);
-  //                                   this.pedido = this.pedidoService.localizaPedido(this.id);
+    console.log ('invocado ngOnInit de pedidos detalhe');
+    this.detalhapedido = this.route.params.subscribe(
+                          params => {
+                                    this.id = params['id'];
+                                    console.log ('O id é: ' + this.id);
+                                    this.pedido = this.pedidoService.localizaPedido(this.id);
 
-  //                                   if (this.pedido === null) {
-  //                                     this.router.navigate(['/naoEncontrado']);
-  //                                   }
-  //                         });
+                                    if (this.pedido === null) {
+                                      this.router.navigate(['/naoEncontrado']);
+                                    }
+                          });
  }
 }
