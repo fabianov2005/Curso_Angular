@@ -18,7 +18,7 @@ export class PedidosdetalheComponent implements OnInit {
 
   id: string;
   detalhapedido: Subscription;
-  pedido: Pedido[];
+  pedido: Pedido;
 
   ngOnInit() {
     console.log ('invocado ngOnInit de pedidos detalhe');
@@ -26,7 +26,12 @@ export class PedidosdetalheComponent implements OnInit {
                           params => {
                                     this.id = params['id'];
                                     console.log ('O id é: ' + this.id);
-                                    this.pedido = this.pedidoService.localizaPedido(this.id);
+                                    this.pedidoService.localizaPedido(this.id).subscribe(
+                                      value => {this.pedido = value;
+                                      },
+                                      error => {
+                                      alert('Erro do servidor durante a consulta de pedido!');
+                                    });
 
                                     if (this.pedido === null) {
                                       this.router.navigate(['/naoEncontrado']);

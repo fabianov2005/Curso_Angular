@@ -24,8 +24,9 @@ export class PedidoService {
     pipe( map(pedidos => pedidos.map(e => Object.assign(new Pedido(), e))));
   }
 
-  localizaPedido(numeropedido: string): Pedido[] {
-      return this.pedidos[numeropedido];
+  localizaPedido(numeropedido: string): Observable<Pedido> {
+      return this.http.get<Pedido>('http://localhost:3000/api/pedidos/' + numeropedido).
+      pipe( map(e => Object.assign(new Pedido(), e)));
   }
 
   excluir(indice: number) {

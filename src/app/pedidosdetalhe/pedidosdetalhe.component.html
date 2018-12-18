@@ -1,21 +1,69 @@
-<div class="form-group">
-      <label>Numero do Pedido:</label>{{id}}
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="../../assets/logo_supermercado.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+    Bootstrap
+  </a>
+</nav>
+
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-9">
+    <div class="container">
+      <div class="form-group">
+          <label>Numero do Pedido:</label>{{id}}
+      </div>
+      <div *ngIf="pedido">
+              <div class="form-group">
+                 <label>Produto:</label>{{pedido.produto.nome}}
+              </div>
+              <div class="form-group">
+                  <label>Valor:</label>{{pedido.produto.valor | currency:'BRL' }}
+              </div>
+              <div class="form-group">
+                  <label>Forma de Pagamento:</label>{{pedido.forma.nome}}
+              </div>
+              <div class="form-group">
+                  <label>Desconto:</label> {{pedido.forma.valor}}
+              </div>
+              <div class="form-group">
+                  <label>Quantidade:</label>{{pedido.quantidade}}
+              </div>
+      </div>
+
+      <ul class="list-group">
+
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="form-group">
+                  <label>Produto:</label>
+              </div>
+            <span class="badge badge-primary badge-pill">{{pedido.produto.nome}}</span>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="form-group">
+                  <label>Valor:</label>
+              </div>
+              <span class="badge badge-primary badge-pill">{{pedido.produto.valor | currency:'BRL' }}</span>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div class="form-group">
+                  <label>Forma de Pagamento:</label>
+              </div>
+            <span class="badge badge-primary badge-pill">{{pedido.forma.nome}}</span>
+          </li>
+
+    </ul>
+
+
+
+      <a routerLink="/pedido">Voltar </a>
+
+    </div>
+  </div>
 </div>
-<div class="form-group">
-      <label>Produto:</label>{{pedido.produto['nome']}}
-</div> -->
-<div class="form-group">
-      <label>Valor:</label>{{pedido.produto['valor'] | currency:'BRL' }}
-</div>
-<div class="form-group">
-      <label>Forma de Pagamento:</label>{{pedido.forma['nome']}}
-</div>
-<div class="form-group">
-      <label>Desconto:</label> {{pedido.forma['valor']}}
-</div>
-<div class="form-group">
-      <label>Quantidade:</label>{{pedido['quantidade']}}
-</div>
-<a routerLink="/pedido">Voltar </a>
+
+
 
 
