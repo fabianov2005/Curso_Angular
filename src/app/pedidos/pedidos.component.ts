@@ -32,13 +32,17 @@ export class PedidosComponent implements OnInit {
                                         quantidade: [null, this.validarCodigo(15)],
                                         forma: null });
 
+    this.buildForm();
+
+  }
+
+  buildForm() {
     this.pedidoService.buscarPedidos().subscribe(value => {
       this.pedidos = value;
       },
       error => {
       alert('Erro do servidor durante a consulta de cursos!');
       });
-
   }
 
   reset() {
@@ -57,13 +61,19 @@ export class PedidosComponent implements OnInit {
     return this.pedidos;
   }
 
-  excluir(indice: number) {
-    return this.pedidoService.excluir(indice);
+  excluir(numeropedido: string) {
+    this.pedidoService.excluir(numeropedido);
   }
 
   incluir() {
     const pedido = new Pedido(this.form.value.produto, this.form.value.quantidade, this.form.value.forma);
-    this.pedidoService.incluirPedidos(pedido);
+
+    this.pedidoService.incluirPedidos(pedido).subscribe(value => {
+      this.pedido = value;
+      },
+      error => {
+      alert('Erro do servidor durante a consulta de cursos!');
+      });
   }
 
   detalhar(numeropedido: number) {

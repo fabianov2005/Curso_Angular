@@ -67,14 +67,14 @@
                   Nenhum registro encontrado
                 </td>
               </tr>
-              <tr *ngFor="let p of buscarpedidos(), let i = index">
+              <tr *ngFor="let p of buscarpedidos()">
                 <td>{{ p.produto.nome }}</td>
                 <td>{{ p.produto.valor | currency:'BRL' }}</td>
                 <td>{{ p.quantidade }}</td>
                 <td>{{ p.forma.nome }}</td>
                 <td>{{ p.total | currency:'BRL' }}</td>
-                <td><button type="button" class="btn btn-danger" (click)="excluir(i)">Excluir</button></td>
-                <td><button type="button" class="btn btn-danger" (click)="detalhar(i)">Detalhar</button></td>
+                <td><button type="button" class="btn btn-danger" (click)="excluir(p.id)">Excluir</button></td>
+                <td><button type="button" class="btn btn-danger" (click)="detalhar(p.id)">Detalhar</button></td>
               </tr>
             </tbody>
             <tfoot *ngIf="buscarpedidos() && buscarpedidos().length > 0">
