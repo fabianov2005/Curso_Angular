@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-pedidosdetalhe',
@@ -37,5 +38,9 @@ export class PedidosdetalheComponent implements OnInit {
                                       this.router.navigate(['/naoEncontrado']);
                                     }
                           });
+ }
+
+ retornarTelaPedido() {
+  this.router.navigateByUrl('/pedidos');
  }
 }
